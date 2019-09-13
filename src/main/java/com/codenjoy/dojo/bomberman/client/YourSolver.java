@@ -57,16 +57,57 @@ public class YourSolver implements Solver<Board> {
         this.board = board;
         if (board.isMyBombermanDead()) return "";
         if (board.isBarrierAt(myBomberMan.getX(), myBomberMan.getY())) return "";
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.OTHER_BOMBERMAN)) return Direction.LEFT.ACT(true);
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.OTHER_BOMBERMAN)) return Direction.RIGHT.ACT(true);
+        if (board.isAt(myBomberMan.getX() , myBomberMan.getY()+1, Elements.OTHER_BOMBERMAN)) return Direction.DOWN.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()-1, Elements.OTHER_BOMBERMAN)) return Direction.UP.ACT(true);
+        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.DESTROYABLE_WALL)) return Direction.RIGHT.ACT(true);
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.DESTROYABLE_WALL)) return Direction.LEFT.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()+1, Elements.DESTROYABLE_WALL)) return Direction.DOWN.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()-1, Elements.DESTROYABLE_WALL)) return Direction.UP.ACT(true);
+
+
+        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.BOMB_TIMER_5)) return Direction.RIGHT.ACT(true);
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.BOMB_TIMER_5)) return Direction.LEFT.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()+1, Elements.BOMB_TIMER_5)) return Direction.DOWN.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()-1, Elements.BOMB_TIMER_5)) return Direction.UP.ACT(true);
+
+        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.BOMB_TIMER_4)) return Direction.RIGHT.ACT(true);
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.BOMB_TIMER_4)) return Direction.LEFT.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()+1, Elements.BOMB_TIMER_4)) return Direction.DOWN.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()-1, Elements.BOMB_TIMER_4)) return Direction.UP.ACT(true);
+
+        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.BOMB_TIMER_3)) return Direction.RIGHT.ACT(true);
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.BOMB_TIMER_3)) return Direction.LEFT.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()+1, Elements.BOMB_TIMER_3)) return Direction.DOWN.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()-1, Elements.BOMB_TIMER_3)) return Direction.UP.ACT(true);
+
+        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.BOMB_TIMER_2)) return Direction.RIGHT.ACT(true);
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.BOMB_TIMER_2)) return Direction.LEFT.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()+1, Elements.BOMB_TIMER_2)) return Direction.DOWN.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()-1, Elements.BOMB_TIMER_2)) return Direction.UP.ACT(true);
+
+        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.BOMB_TIMER_1)) return Direction.RIGHT.ACT(true);
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.BOMB_TIMER_1)) return Direction.LEFT.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()+1, Elements.BOMB_TIMER_1)) return Direction.DOWN.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()-1, Elements.BOMB_TIMER_1)) return Direction.UP.ACT(true);
+
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.OTHER_BOMB_BOMBERMAN)) return Direction.LEFT.toString();
+        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.OTHER_BOMB_BOMBERMAN)) return Direction.RIGHT.toString();
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()-1, Elements.OTHER_BOMB_BOMBERMAN)) return Direction.UP.toString();
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()+1, Elements.OTHER_BOMB_BOMBERMAN)) return Direction.DOWN.ACT(true);
+        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.MEAT_CHOPPER)) return Direction.LEFT.ACT(true);
+        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.MEAT_CHOPPER)) return Direction.RIGHT.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY() + 1, Elements.MEAT_CHOPPER)) return Direction.DOWN.ACT(true);
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY() - 1, Elements.MEAT_CHOPPER)) return Direction.UP.ACT(true);
+        if (board.isAt(myBomberMan.getX() , myBomberMan.getY()+1, Elements.NONE)) return Direction.UP.toString();
+        if (board.isAt(myBomberMan.getX() , myBomberMan.getY()-1, Elements.NONE)) return Direction.DOWN.toString();
+        if (board.isAt(myBomberMan.getX() -1, myBomberMan.getY(), Elements.NONE)) return Direction.LEFT.toString();
+        if (board.isAt(myBomberMan.getX() +1, myBomberMan.getY(), Elements.NONE)) return Direction.RIGHT.toString();
         if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.WALL)) return Direction.RIGHT.toString();
         if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.WALL)) return Direction.LEFT.toString();
-        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.DESTROYABLE_WALL)) return Direction.RIGHT.ACT(false);
-        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.DESTROYABLE_WALL)) return Direction.LEFT.ACT(false);
-        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.OTHER_BOMBERMAN)) return Direction.LEFT.ACT(false);
-        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.OTHER_BOMB_BOMBERMAN)) return Direction.LEFT.toString();
-        if (board.isAt(myBomberMan.getX() + 1, myBomberMan.getY(), Elements.MEAT_CHOPPER)) return Direction.LEFT.ACT(false);
-        if (board.isAt(myBomberMan.getX() - 1, myBomberMan.getY(), Elements.MEAT_CHOPPER)) return Direction.RIGHT.ACT(false);
-        if (board.isAt(myBomberMan.getX(), myBomberMan.getY() + 1, Elements.MEAT_CHOPPER)) return Direction.DOWN.ACT(false);
-        if (board.isAt(myBomberMan.getX() , myBomberMan.getY()+1, Elements.NONE)) return Direction.DOWN.toString();
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()+1, Elements.WALL)) return Direction.DOWN.toString();
+        if (board.isAt(myBomberMan.getX(), myBomberMan.getY()-1, Elements.WALL)) return Direction.UP.toString();
         System.out.println(board.toString());
         return Direction.ACT.toString();
     }
@@ -74,7 +115,8 @@ public class YourSolver implements Solver<Board> {
     public static void main(String[] args) {
         WebSocketRunner.runClient(
                 // paste here board page url from browser after registration
-                "http://codenjoy.com:80/codenjoy-contest/board/player/r3t8ms7bnrrbeo6nvjhw?code=3151697663445784467",
+//                "http://codenjoy.com:80/codenjoy-contest/board/player/r3t8ms7bnrrbeo6nvjhw?code=3151697663445784467",
+                "http://10.6.219.126/codenjoy-contest/board/player/gx8nf41g7xk0veuw9qvo?code=5101387478571993218",
                 new YourSolver(new RandomDice()),
                 new Board());
     }

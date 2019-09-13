@@ -115,12 +115,52 @@ public class SolverTest {
     private void assertMoveLeftWhenRightIsOtherBombBomber(String board, Direction direction) {
         assertEquals(direction, solver.get((Board) new Board().forString(board)));
     }
+
     @Test
     public void shouldMoveLeftWhenRightIsOtherBombBomber() {
         assertMoveLeftWhenRightIsOtherBombBomber("☼☼☼☼☼☼☼☼☼☼☼☼☼☼☼" +
                         "☼        ☺♠ # ☼" +
                         "☼☼☼☼☼☼☼☼☼☼☼☼☼☼☼",
                 Direction.LEFT);
+    }
+
+
+//    private void assertMoveDownWhenUpIsOtherBombBomber(String board, Direction direction) {
+//        assertEquals(direction, solver.get((Board) new Board().forString(board)));
+//    }
+//
+//    @Test
+//    public void shouldMoveDownWhenUpIsOtherBombBomber() {
+//        assertMoveDownWhenUpIsOtherBombBomber ("☼☼☼☼☼☼☼☼☼☼☼☼☼☼☼" +
+//                        "☼        ☺  # ☼" +
+//                        "☼        ♠  # ☼" +
+//                        "☼☼☼☼☼☼☼☼☼☼☼☼☼☼☼",
+//                Direction.UP);
+//    }
+
+    private void assertMoveUpWhenDownIsOtherBombBomber(String board, String direction) {
+        assertEquals(direction, solver.get((Board) new Board().forString(board)));
+    }
+
+    @Test
+    public void shouldMoveDownWhenUpIsOtherBombBomber() {
+        assertMoveUpWhenDownIsOtherBombBomber("☼☼☼☼☼☼☼☼☼☼☼☼☼☼☼" +
+                        "☼♠  # ☼" +
+                        "☼☺  # ☼" +
+                        "☼   # ☼" +
+                        "☼☼☼☼☼☼☼☼☼☼☼☼☼☼☼",
+                Direction.DOWN.toString());
+    }
+    private void assertPutBombAndMoveDownWhenUpIsOtherBomber(String board, String direction) {
+        assertEquals(direction, solver.get((Board) new Board().forString(board)));
+    }
+    @Test
+    public void shouldPutBombAndMoveDownWhenUpIsOtherBomber() {
+        assertPutBombAndMoveDownWhenUpIsOtherBomber("☼☼☼☼☼☼☼☼☼☼☼☼☼☼☼" +
+                        "☼♥ # ☼" +
+                        "☼☺ # ☼" +
+                        "☼☼☼☼☼☼☼☼☼☼☼☼☼☼☼",
+                Direction.DOWN.ACT(false));
     }
     private void assertPutBombAndMoveLeftWhenRightIsMeatChopper(String board, String direction) {
         assertEquals(direction, solver.get((Board) new Board().forString(board)));
@@ -154,12 +194,25 @@ public class SolverTest {
                         "☼☼☼☼☼",
                 Direction.DOWN.ACT(false));
     }
-    private void assertMoveDownWhenUpIsEmpty(String board, String direction) {
+    private void assertMoveUpWhenUpIsEmpty(String board, String direction) {
         assertEquals(direction, solver.get((Board) new Board().forString(board)));
     }
     @Test
-    public void MoveDownWhenUpIsEmpty() {
-        assertMoveDownWhenUpIsEmpty("☼☼☼☼☼" +
+    public void MoveUpWhenUpIsEmpty() {
+        assertMoveUpWhenUpIsEmpty("☼☼☼☼☼" +
+                        "☼   ☼" +
+                        "☼ ☺ ☼" +
+                        "☼   ☼" +
+                        "☼☼☼☼☼",
+                Direction.UP.toString());
+    }
+
+    private void assertMoveDownWhenDownIsEmpty(String board, String direction) {
+        assertEquals(direction, solver.get((Board) new Board().forString(board)));
+    }
+    @Test
+    public void MoveUpWhenDownIsEmpty() {
+        assertMoveDownWhenDownIsEmpty("☼☼☼☼☼" +
                         "☼   ☼" +
                         "☼ ☺ ☼" +
                         "☼   ☼" +
